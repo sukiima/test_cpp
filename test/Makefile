@@ -1,8 +1,16 @@
-all:
-	time g++ -include all.h -std=c++17 -Wall --pedantic-errors test.cpp -o test.out
+gcc_options = -std=cpp17 -Wall --pedantic-error
 
-run:
-	./test.out
+program : main.cpp all.h all.h.gch
+	g++ $(gcc_options) -include all.h $< -o $@
 
-clean:
-	- rm *.out
+all.h.gch : all.h
+	g++ $(gcc_options) -x c++-header -o $@ $<
+
+run : program
+	./program
+
+clean :
+	rm -f ./program
+	rm -f ./all.h.gch
+
+.PHONY : run clean
