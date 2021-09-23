@@ -1,10 +1,13 @@
-int main()
-{
-	auto answer = 42;
-	std::cout << answer << "\n"s;
-	auto pi = 3.14;
-	std::cout << pi << "\n"s;
+auto a() {}
 
-	auto question = "Lite, the Universe, and Everything."s;
-	std::cout << question ;
+auto b() {return 0 ;}
+
+auto c() {return 0.0 ;}
+
+auto d() {return ""s ;}
+
+auto e()
+{
+	return 0;
+	return 0.0;
 }
